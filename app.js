@@ -194,3 +194,115 @@
   });
 
 })();
+
+  // ============================================================
+  // DONATIONS
+  // ============================================================
+  (function initDonations() {
+    if (typeof donationConfig === 'undefined' || typeof donationTiers === 'undefined') return;
+
+    function esc(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // Description
+    const descEl = document.getElementById('donate-description');
+    if (descEl && donationConfig.description) {
+      descEl.textContent = donationConfig.description;
+    }
+
+    // Progress
+    const current = donationConfig.currentRobux || 0;
+    const goal = donationConfig.goalRobux || 1;
+    const pct = Math.min(100, Math.round((current / goal) * 100));
+
+    const fmt = (n) => n.toLocaleString('en-US');
+
+    const goalLabel = document.getElementById('donate-goal-label');
+    const progressText = document.getElementById('donate-progress-text');
+    const progressFill = document.getElementById('donate-progress-fill');
+    const progressPct = document.getElementById('donate-progress-pct');
+
+    if (goalLabel) goalLabel.textContent = donationConfig.goalLabel || 'Server Goal';
+    if (progressText) progressText.textContent = `${fmt(current)} / ${fmt(goal)} R$`;
+    if (progressFill) progressFill.style.width = pct + '%';
+    if (progressPct) progressPct.textContent = pct + '%';
+
+    // Tiers
+    const grid = document.getElementById('donate-grid');
+    if (!grid) return;
+
+    let selectedId = null;
+
+    grid.innerHTML = donationTiers.map(t => `
+      <div class="donate-card" data-id="${t.productId}" data-amount="${t.amount}">
+        <div class="donate-amount">${fmt(t.amount)} <span>R$</span></div>
+        <div class="donate-id">ID: ${t.productId}</div>
+      </div>
+    `).join('');
+
+    // Action area
+    const actionWrap = document.createElement('div');
+    actionWrap.className = 'donate-action';
+    actionWrap.innerHTML = `
+      <button class="donate-buy-btn" id="donate-buy-btn" disabled>Select an amount</button>
+      <p class="donate-hint" id="donate-hint">
+        Purchases are made with Robux through official Roblox Developer Products inside the game.
+      </p>
+    `;
+    grid.after(actionWrap);
+
+    const buyBtn = document.getElementById('donate-buy-btn');
+    const hint = document.getElementById('donate-hint');
+
+    grid.querySelectorAll('.donate-card').forEach(card => {
+      card.addEventListener('click', () => {
+        grid.querySelectorAll('.donate-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedId = card.dataset.id;
+        const amount = card.dataset.amount;
+
+        buyBtn.disabled = false;
+        buyBtn.textContent = `Donate ${fmt(Number(amount))} R$`;
+
+        if (donationConfig.gameLink) {
+          hint.innerHTML = `Open the game and purchase Developer Product <strong>#${selectedId}</strong>, or click the button to go to the experience.`;
+          buyBtn.onclick = () => window.open(donationConfig.gameLink, '_blank');
+        } else {
+          hint.innerHTML = `Go into the Texas State Roleplay game and purchase Developer Product <strong>#${selectedId}</strong> (${fmt(Number(amount))} R$).`;
+          buyBtn.onclick = () => {
+            // Copy product ID for convenience
+            if (navigator.clipboard) {
+              navigator.clipboard.writeText(selectedId).catch(() => {});
+            }
+            alert(`Product ID ${selectedId} copied (if supported).\n\nJoin the game and buy the ${fmt(Number(amount))} R$ Developer Product.`);
+          };
+        }
+      });
+    });
+
+    // Recent donors
+    const donorsList = document.getElementById('donors-list');
+    const donorsEmpty = document.getElementById('donors-empty');
+    if (donorsList && typeof recentDonors !== 'undefined') {
+      if (recentDonors.length === 0) {
+        if (donorsEmpty) donorsEmpty.style.display = 'block';
+      } else {
+        if (donorsEmpty) donorsEmpty.style.display = 'none';
+        donorsList.innerHTML = recentDonors.map(d => `
+          <div class="donor-card">
+            <div class="donor-info">
+              <div class="donor-name">${esc(d.name)}</div>
+              ${d.note ? `<div class="donor-note">${esc(d.note)}</div>` : ''}
+            </div>
+            <div class="donor-amount">${fmt(d.amount)} R$</div>
+          </div>
+        `).join('');
+      }
+    }
+  })();
