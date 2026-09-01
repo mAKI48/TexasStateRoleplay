@@ -127,6 +127,37 @@ body {
   border-radius: 999px;
 }
 
+.discord-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  background: #5865F2;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.7rem 1.35rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 14px rgba(88, 101, 242, 0.35);
+}
+
+.discord-btn:hover {
+  background: #4752c4;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(88, 101, 242, 0.45);
+}
+
+.discord-btn:active {
+  transform: translateY(0);
+}
+
+.discord-btn svg {
+  flex-shrink: 0;
+}
+
 /* ========== Navigation Tabs ========== */
 .nav-tabs {
   display: flex;
