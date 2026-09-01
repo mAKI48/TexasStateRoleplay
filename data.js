@@ -1275,3 +1275,41 @@ const leoNotes = [
   "Always learn the specific codes used by your department or the jurisdiction you are roleplaying.",
   "Suffixes are sometimes added (e.g., 10-7A = out of service at home, 10-50F = fatal accident)."
 ];
+
+// ============================================================
+// DONATIONS (Developer Products)
+// Edit these values to update the donation page
+// ============================================================
+const donationConfig = {
+  // Current progress (update these numbers when people donate)
+  currentRobux: 0,
+  goalRobux: 50000,
+  goalLabel: "Server Goal",
+
+  // Optional: link to your Roblox experience where the products are sold
+  // Leave empty if you don't want a direct game link
+  gameLink: "",
+
+  // Message shown under the title
+  description: "Support Texas State Roleplay with Robux. All donations are made through official Roblox Developer Products inside the game. No real money, no passwords, no third-party sites."
+};
+
+const donationTiers = [
+  { amount: 5,     productId: 3710846354, label: "5 Robux" },
+  { amount: 10,    productId: 3710846747, label: "10 Robux" },
+  { amount: 25,    productId: 3710846784, label: "25 Robux" },
+  { amount: 50,    productId: 3710846803, label: "50 Robux" },
+  { amount: 100,   productId: 3710846841, label: "100 Robux" },
+  { amount: 250,   productId: 3710846876, label: "250 Robux" },
+  { amount: 500,   productId: 3710846923, label: "500 Robux" },
+  { amount: 1000,  productId: 3710846950, label: "1,000 Robux" },
+  { amount: 2500,  productId: 3710847001, label: "2,500 Robux" },
+  { amount: 5000,  productId: 3710847078, label: "5,000 Robux" },
+  { amount: 10000, productId: 3710847107, label: "10,000 Robux" }
+];
+
+// Recent supporters – add new entries at the top
+// Example: { name: "PlayerName", amount: 100, note: "Optional message" }
+const recentDonors = [
+  // { name: "ExamplePlayer", amount: 100, note: "Keep up the great work!" }
+];
