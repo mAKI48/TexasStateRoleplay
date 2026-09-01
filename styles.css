@@ -1,6 +1,5 @@
 /* ============================================================
-   Texas State Roleplay - Rules Website
-   Clean, professional, modern design
+   Texas State Roleplay
    ============================================================ */
 
 :root {
@@ -125,6 +124,14 @@ body {
   font-weight: 500;
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
+  transition: all 0.25s ease;
+}
+
+.value-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+  background: var(--accent-soft);
 }
 
 .discord-btn {
@@ -140,22 +147,27 @@ body {
   padding: 0.7rem 1.35rem;
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 14px rgba(88, 101, 242, 0.35);
 }
 
 .discord-btn:hover {
   background: #4752c4;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(88, 101, 242, 0.45);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(88, 101, 242, 0.5);
 }
 
 .discord-btn:active {
-  transform: translateY(0);
+  transform: translateY(-1px) scale(0.98);
 }
 
 .discord-btn svg {
   flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.discord-btn:hover svg {
+  transform: rotate(-8deg) scale(1.1);
 }
 
 /* ========== Navigation Tabs ========== */
@@ -182,7 +194,7 @@ body {
   padding: 0.7rem 1.25rem;
   border-radius: var(--radius-sm) var(--radius-sm) 0 0;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   bottom: -1px;
 }
@@ -190,6 +202,7 @@ body {
 .nav-tab:hover {
   color: var(--text-primary);
   background: var(--bg-hover);
+  transform: translateY(-2px);
 }
 
 .nav-tab.active {
@@ -197,6 +210,7 @@ body {
   background: var(--bg-secondary);
   border-color: var(--border);
   border-bottom-color: var(--bg-secondary);
+  transform: translateY(0);
 }
 
 .nav-tab.active::after {
@@ -207,6 +221,12 @@ body {
   right: 0;
   height: 2px;
   background: var(--accent);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
 }
 
 /* ========== Main Content ========== */
@@ -313,16 +333,19 @@ body {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: var(--transition);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .rule-card:hover {
   border-color: var(--border-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .rule-card.open {
   border-color: rgba(59, 130, 246, 0.4);
   box-shadow: var(--shadow);
+  transform: translateY(0);
 }
 
 .rule-header {
@@ -332,11 +355,21 @@ body {
   padding: 1rem 1.15rem;
   cursor: pointer;
   user-select: none;
-  transition: var(--transition);
+  transition: background 0.25s ease;
 }
 
 .rule-header:hover {
   background: var(--bg-hover);
+}
+
+.rule-header:hover .rule-number {
+  transform: scale(1.08);
+  background: rgba(59, 130, 246, 0.25);
+}
+
+.rule-header:hover .rule-chevron {
+  color: var(--accent);
+  transform: translateY(2px);
 }
 
 .rule-number {
@@ -352,6 +385,7 @@ body {
   font-size: 0.85rem;
   border-radius: 8px;
   border: 1px solid rgba(59, 130, 246, 0.25);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .rule-header-text {
@@ -376,7 +410,7 @@ body {
   flex-shrink: 0;
   color: var(--text-muted);
   font-size: 1.1rem;
-  transition: transform 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin-top: 0.25rem;
 }
 
@@ -489,18 +523,22 @@ body {
   padding: 0.5rem 1rem;
   border-radius: 999px;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .leo-subtab:hover {
   background: var(--bg-hover);
   color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .leo-subtab.active {
   background: var(--accent);
   border-color: var(--accent);
   color: white;
+  transform: translateY(0);
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.35);
 }
 
 .leo-section {
@@ -576,12 +614,19 @@ body {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  transition: var(--transition);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .phonetic-item:hover {
   border-color: var(--accent);
   background: var(--bg-hover);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.2);
+}
+
+.phonetic-item:hover .phonetic-letter {
+  transform: scale(1.1);
+  background: rgba(59, 130, 246, 0.3);
 }
 
 .phonetic-letter {
@@ -595,6 +640,7 @@ body {
   font-weight: 700;
   border-radius: 6px;
   font-size: 0.95rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .phonetic-word {
