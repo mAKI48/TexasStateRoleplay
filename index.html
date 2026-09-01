@@ -29,6 +29,7 @@
     <button class="nav-tab active" data-tab="ingame" role="tab" aria-selected="true">In-Game Rules</button>
     <button class="nav-tab" data-tab="discord" role="tab" aria-selected="false">Discord Rules</button>
     <button class="nav-tab" data-tab="leo" role="tab" aria-selected="false">LEO Codes</button>
+    <button class="nav-tab" data-tab="donate" role="tab" aria-selected="false">Donations</button>
   </nav>
 
   <main class="main-content">
@@ -120,6 +121,37 @@
 
       <div id="leo-phonetic" class="leo-section">
         <div class="phonetic-grid" id="phonetic-grid"></div>
+      </div>
+    </section>
+
+    <!-- DONATIONS -->
+    <section id="panel-donate" class="tab-panel" role="tabpanel">
+      <div class="section-intro">
+        <h2>Support the Server</h2>
+        <p id="donate-description">Support Texas State Roleplay with Robux through official Developer Products.</p>
+      </div>
+
+      <div class="donate-notice">
+        <strong>How it works:</strong> All donations are made with <strong>Robux only</strong> using official Roblox Developer Products inside the game. We never ask for passwords, cookies, or real money.
+      </div>
+
+      <div class="donate-progress-card">
+        <div class="donate-progress-header">
+          <span id="donate-goal-label">Server Goal</span>
+          <span id="donate-progress-text">0 / 50,000 R$</span>
+        </div>
+        <div class="donate-progress-bar">
+          <div class="donate-progress-fill" id="donate-progress-fill" style="width:0%"></div>
+        </div>
+        <div class="donate-progress-pct" id="donate-progress-pct">0%</div>
+      </div>
+
+      <h3 class="donate-section-title">Choose an amount</h3>
+      <div class="donate-grid" id="donate-grid"></div>
+
+      <h3 class="donate-section-title">Recent Supporters</h3>
+      <div class="donors-list" id="donors-list">
+        <p class="donors-empty" id="donors-empty">No donations yet. Be the first to support the server!</p>
       </div>
     </section>
   </main>
