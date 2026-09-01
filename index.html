@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Texas State Roleplay — Official Rules & Codes</title>
+  <meta name="description" content="Official rules, Discord guidelines, and LEO radio codes for Texas State Roleplay (ER:LC). Quality RP comes before winning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo-badge">ER:LC Community</div>
+    <h1 class="site-title" id="site-title">Texas State Roleplay</h1>
+    <p class="site-subtitle" id="site-subtitle">Official Rules & Codes Reference</p>
+    <p class="tagline" id="site-tagline">Quality RP comes before winning.</p>
+    <div class="values" id="site-values"></div>
+  </header>
+
+  <nav class="nav-tabs" role="tablist">
+    <button class="nav-tab active" data-tab="ingame" role="tab" aria-selected="true">In-Game Rules</button>
+    <button class="nav-tab" data-tab="discord" role="tab" aria-selected="false">Discord Rules</button>
+    <button class="nav-tab" data-tab="leo" role="tab" aria-selected="false">LEO Codes</button>
+  </nav>
+
+  <main class="main-content">
+    <!-- IN-GAME RULES -->
+    <section id="panel-ingame" class="tab-panel active" role="tabpanel">
+      <div class="section-intro">
+        <h2>In-Game Rules</h2>
+        <p>These rules apply while playing on the Texas State Roleplay ER:LC server. Read them carefully — quality RP always comes before winning.</p>
+      </div>
+      <div class="staff-note">
+        <strong>Staff Discretion:</strong> Staff may intervene when behavior clearly damages the RP experience, even if the exact situation is not listed.
+      </div>
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="search" id="search-ingame" placeholder="Search in-game rules..." autocomplete="off" />
+      </div>
+      <div class="rules-list" id="rules-ingame"></div>
+      <div class="no-results" id="no-ingame" style="display:none;">No rules match your search.</div>
+    </section>
+
+    <!-- DISCORD RULES -->
+    <section id="panel-discord" class="tab-panel" role="tabpanel">
+      <div class="section-intro">
+        <h2>Discord Rules</h2>
+        <p>Please read and follow these rules. By remaining in the server, you agree to them.</p>
+      </div>
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="search" id="search-discord" placeholder="Search Discord rules..." autocomplete="off" />
+      </div>
+      <div class="rules-list" id="rules-discord"></div>
+      <div class="no-results" id="no-discord" style="display:none;">No rules match your search.</div>
+    </section>
+
+    <!-- LEO CODES -->
+    <section id="panel-leo" class="tab-panel" role="tabpanel">
+      <div class="section-intro">
+        <h2>Police LEO Radio Codes</h2>
+        <p>10-Codes, Response Codes, Signals & Phonetic Alphabet for roleplay reference.</p>
+      </div>
+      <div class="leo-disclaimer">
+        <strong>Important Disclaimer:</strong> There is no universal national standard for police 10-codes. Meanings vary significantly by department, city, county, and state. The lists below reflect commonly cited APCO-style and widely used definitions. Always confirm with your RP department. This document is for educational and roleplay reference purposes only.
+      </div>
+
+      <div class="search-bar">
+        <span class="search-icon">🔍</span>
+        <input type="search" id="search-leo" placeholder="Search codes (e.g. 10-4, Code 3, Alpha)..." autocomplete="off" />
+      </div>
+
+      <div class="leo-subnav">
+        <button class="leo-subtab active" data-leo="tencodes">10-Codes</button>
+        <button class="leo-subtab" data-leo="response">Response Codes</button>
+        <button class="leo-subtab" data-leo="signals">Signal Codes</button>
+        <button class="leo-subtab" data-leo="phonetic">Phonetic Alphabet</button>
+        <button class="leo-subtab" data-leo="notes">Important Notes</button>
+      </div>
+
+      <div id="leo-tencodes" class="leo-section active">
+        <div class="code-table-wrap">
+          <table class="code-table">
+            <thead>
+              <tr><th>Code</th><th>Meaning</th></tr>
+            </thead>
+            <tbody id="tbody-tencodes"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="leo-response" class="leo-section">
+        <div class="code-table-wrap">
+          <table class="code-table">
+            <thead>
+              <tr><th>Code</th><th>Meaning</th></tr>
+            </thead>
+            <tbody id="tbody-response"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="leo-signals" class="leo-section">
+        <div class="code-table-wrap">
+          <table class="code-table">
+            <thead>
+              <tr><th>Code</th><th>Meaning</th></tr>
+            </thead>
+            <tbody id="tbody-signals"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="leo-phonetic" class="leo-section">
+        <div class="phonetic-grid" id="phonetic-grid"></div>
+      </div>
+
+      <div id="leo-notes" class="leo-section">
+        <ul class="notes-list" id="notes-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Texas State Roleplay</strong> · Professional · Fair · Realistic · Community Driven</p>
+    <p style="margin-top:0.4rem;">To edit rules, update <code>data.js</code> and refresh. Designed for easy maintenance.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
