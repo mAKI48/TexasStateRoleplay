@@ -161,10 +161,6 @@
     </div>
   `).join('');
 
-  // Notes
-  const notesList = document.getElementById('notes-list');
-  notesList.innerHTML = leoNotes.map(n => `<li>${escapeHtml(n)}</li>`).join('');
-
   // LEO sub-tabs
   const leoSubtabs = document.querySelectorAll('.leo-subtab');
   const leoSections = document.querySelectorAll('.leo-section');
