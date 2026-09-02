@@ -1288,7 +1288,7 @@ const donationConfig = {
 
   // Optional: link to your Roblox experience where the products are sold
   // Leave empty if you don't want a direct game link
-  gameLink: "",
+  gameLink: "https://www.roblox.com/games/79797152785432/Texas-State-Roleplay-Donation-Game#!/store",
 
   // Message shown under the title
   description: "Support Texas State Roleplay with Robux. All donations are made through official Roblox Developer Products inside the game. No real money, no passwords, no third-party sites."
